@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>demo</artifactId>
+	<artifactId>reactivewebclient</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>reactiveclient</name>
 	<description>Demo project for Spring Boot Reactive Client</description>
