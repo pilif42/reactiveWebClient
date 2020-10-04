@@ -13,7 +13,12 @@ import java.util.function.Consumer;
 @Component
 public class CustomEventListener implements ApplicationListener<ApplicationReadyEvent> {
 
+    /**
+     * 2 customer consumers to be able to identify in the logs which one outputs first as we do a GET All call followed
+     * by a Get One call without blocking. Most of the time, the Get One output is last but at times, it happens first.
+     */
     private final Consumer<CustomerDto> customerConsumer = customer -> log.debug("Retrieved successfully customer {}", customer.getId());
+    private final Consumer<CustomerDto> uniqueCustomerConsumer = customer -> log.debug("Retrieved successfully unique customer {}", customer.getId());
     private final Consumer<Throwable> errorConsumer = error -> log.error("An error occurred:", error);
 
     private final CustomerService customerService;
@@ -28,6 +33,6 @@ public class CustomEventListener implements ApplicationListener<ApplicationReady
 
         customerService.getAll().subscribe(customerConsumer, errorConsumer);
 
-        customerService.getOne(1L).subscribe(customerConsumer, errorConsumer);
+        customerService.getOne(1L).subscribe(uniqueCustomerConsumer, errorConsumer);
     }
 }
