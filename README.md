@@ -10,8 +10,8 @@ mvn clean install
 
 
 # TODOs
-- start at TODO in CustomerService
-- test the 2 endpoints (POST & GET) with a WebClient (in a different project to separate concerns: reactiveWebClient?)
+- start at TODO in CustomerService: once Get All done, do a Get one (bodyToMono)
+- test the 2 endpoints (POST & GET) with a WebClient
         - maybe use https://www.baeldung.com/spring-5-webclient as a pointer?
         - how do we access the 5 in Location: /customers/5 when a POST is made?
-        - use subscribe on the GET results: examples at https://projectreactor.io/docs/core/release/reference/index.html#_subscribe_method_examples
+- use subscribe on the GET results: examples at https://projectreactor.io/docs/core/release/reference/index.html#_subscribe_method_examples

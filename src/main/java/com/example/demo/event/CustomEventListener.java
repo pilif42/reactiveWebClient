@@ -19,6 +19,9 @@ public class CustomEventListener implements ApplicationListener<ApplicationReady
     @Override
     public void onApplicationEvent(ApplicationReadyEvent applicationReadyEvent) {
         log.debug("Application Ready Event received.");
-        customerService.getAll();
+
+        customerService.getAll().subscribe(
+                customer -> log.debug("Retrieved successfully customer {}", customer.getId()),
+                error -> log.error("An error occurred:", error));
     }
 }

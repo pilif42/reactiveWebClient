@@ -1,10 +1,12 @@
 package com.example.demo.service;
 
+import com.example.demo.dto.CustomerDto;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
+import reactor.core.publisher.Flux;
 
 @Slf4j
 @Service
@@ -20,9 +22,8 @@ public class CustomerService {
                 .build();
     }
 
-    public void getAll() {
+    public Flux<CustomerDto> getAll() {
         log.debug("About to call the getAll endpoint...");
-        // TODO
-//        webClient.get().uri("/customers").exchange().
+        return webClient.get().uri("/customers").retrieve().bodyToFlux(CustomerDto.class);
     }
 }
