@@ -17,7 +17,9 @@ mvn clean install
 
 
 # TODOs server-side project
-- POST body validation: we are now missing the LOcation header. Why?
+- POST body validation:
+        - write unit tests: see https://www.baeldung.com/spring-5-webclient#workingwebtestclient
+        - scenario where email is empty string. We get a 400 but no msg saying 'pb with email' in the JSON response.
 - play with the backpressure: https://projectreactor.io/docs/core/release/reference/index.html#_on_backpressure_and_ways_to_reshape_requests
 - do we need classic endpoints as with ProfileRestController at https://developer.okta.com/blog/2018/09/24/reactive-apis-with-spring-webflux
         - test endpoints: see AbstractBaseProfileEndpoints, etc. at https://developer.okta.com/blog/2018/09/24/reactive-apis-with-spring-webflux
