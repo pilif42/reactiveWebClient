@@ -31,8 +31,22 @@ public class CustomEventListener implements ApplicationListener<ApplicationReady
     public void onApplicationEvent(ApplicationReadyEvent applicationReadyEvent) {
         log.debug("Application Ready Event received.");
 
+        /**
+         * Testing GET endpoints
+         */
         customerService.getAll().subscribe(customerConsumer, errorConsumer);
 
         customerService.getOne(1L).subscribe(uniqueCustomerConsumer, errorConsumer);
+
+        /**
+         * Testing the POST endpoint
+         */
+        CustomerDto customerDto = new CustomerDto();
+        customerDto.setEmail("joeblogg@gmail.com");
+        customerDto.setPassword("pwdtest");
+        customerDto.setRole("Tester");
+        Long newCustomerId = customerService.create(customerDto);
+
+        customerService.getOne(newCustomerId).subscribe(uniqueCustomerConsumer, errorConsumer);
     }
 }

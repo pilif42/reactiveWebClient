@@ -5,6 +5,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
+import org.springframework.web.reactive.function.BodyInserters;
+import org.springframework.web.reactive.function.client.ClientResponse;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -32,5 +34,16 @@ public class CustomerService {
 
     public Mono<CustomerDto> getOne(Long id) {
         return webClient.get().uri(format("/customers/%d", id)).retrieve().bodyToMono(CustomerDto.class);
+    }
+
+    public Long create(CustomerDto customerDto) {
+        Mono<ClientResponse> clientResponseMono = webClient.post().uri("/customers")
+                .body(BodyInserters.fromPublisher(Mono.just(customerDto), CustomerDto.class))
+                .exchange();
+        // We block here as we want to return the ID of the newly created customer.
+        ClientResponse clientResponse = clientResponseMono.block();
+
+        // We know we get a header following the pattern Location: /customers/5
+        return Long.valueOf(clientResponse.headers().asHttpHeaders().get("Location").get(0).substring(11));
     }
 }
