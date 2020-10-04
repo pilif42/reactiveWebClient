@@ -7,6 +7,9 @@ import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
+
+import static java.lang.String.format;
 
 @Slf4j
 @Service
@@ -25,5 +28,9 @@ public class CustomerService {
     public Flux<CustomerDto> getAll() {
         log.debug("About to call the getAll endpoint...");
         return webClient.get().uri("/customers").retrieve().bodyToFlux(CustomerDto.class);
+    }
+
+    public Mono<CustomerDto> getOne(Long id) {
+        return webClient.get().uri(format("/customers/%d", id)).retrieve().bodyToMono(CustomerDto.class);
     }
 }
