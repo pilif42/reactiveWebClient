@@ -17,7 +17,6 @@ mvn clean install
 
 
 # TODOs server-side project
-- fix CustomerRouterITTest : ensure all tests can be run at a time. Current issue is that the POST test creates one more item. The context & db should be reset after each test. Possible?
 - play with the backpressure: https://projectreactor.io/docs/core/release/reference/index.html#_on_backpressure_and_ways_to_reshape_requests
 - do we need classic endpoints as with ProfileRestController at https://developer.okta.com/blog/2018/09/24/reactive-apis-with-spring-webflux
         - test endpoints: see AbstractBaseProfileEndpoints, etc. at https://developer.okta.com/blog/2018/09/24/reactive-apis-with-spring-webflux
