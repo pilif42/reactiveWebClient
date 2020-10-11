@@ -18,12 +18,10 @@ mvn clean install
 
 # TODOs server-side project
 - play with the backpressure: https://projectreactor.io/docs/core/release/reference/index.html#_on_backpressure_and_ways_to_reshape_requests
-- do we need classic endpoints as with ProfileRestController at https://developer.okta.com/blog/2018/09/24/reactive-apis-with-spring-webflux
-        - test endpoints: see AbstractBaseProfileEndpoints, etc. at https://developer.okta.com/blog/2018/09/24/reactive-apis-with-spring-webflux
-- Retry & asynch endpoint: how to implement. For instance if the createCustomer in CustomerHandler fails, how to handle it?
-- Read:
+- retry & asynch endpoint: how to implement. For instance if the createCustomer in CustomerHandler fails, how to handle it?
+- read:
         - https://spring.io/blog/2016/06/13/notes-on-reactive-programming-part-ii-writing-some-code
         - https://netflixtechblog.com/reactive-programming-in-the-netflix-api-with-rxjava-7811c3a1496a
         - https://docs.spring.io/spring-framework/docs/5.0.0.BUILD-SNAPSHOT/spring-framework-reference/html/web-reactive.html
         - Apply back pressure and test it.    
-- Asynch endpoint to stream data from Azure or similar (Blob: see email). 
+- asynch endpoint to stream data from Azure or similar (Blob: see email). 
