@@ -20,6 +20,7 @@ mvn clean install
 - retry & asynch endpoint:
         - unit test basic retry added on CustomerService in the service project.
         - what if we exceed the max nb of retries? Propagate the exception correctly so relevant feedback sent to customer.
+               - https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/web-reactive.html#webflux-dispatcher-exceptions
 - read:
         - https://spring.io/blog/2016/06/13/notes-on-reactive-programming-part-ii-writing-some-code
         - https://netflixtechblog.com/reactive-programming-in-the-netflix-api-with-rxjava-7811c3a1496a
