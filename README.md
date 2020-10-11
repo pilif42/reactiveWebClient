@@ -17,8 +17,9 @@ mvn clean install
 
 
 # TODOs server-side project
-- play with the backpressure: https://projectreactor.io/docs/core/release/reference/index.html#_on_backpressure_and_ways_to_reshape_requests
-- retry & asynch endpoint: how to implement. For instance if the createCustomer in CustomerHandler fails, how to handle it?
+- retry & asynch endpoint:
+        - unit test basic retry added on CustomerService in the service project.
+        - what if we exceed the max nb of retries? Propagate the exception correctly so relevant feedback sent to customer.
 - read:
         - https://spring.io/blog/2016/06/13/notes-on-reactive-programming-part-ii-writing-some-code
         - https://netflixtechblog.com/reactive-programming-in-the-netflix-api-with-rxjava-7811c3a1496a
