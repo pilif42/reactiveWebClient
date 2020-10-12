@@ -23,6 +23,8 @@ mvn clean install
                 - use a HandlerFilterFunction similar to LoggingHandlerFilterFunction?
                         - https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/web-reactive.html#webflux-fn-handler-filter-function
                - ou https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/web-reactive.html#webflux-dispatcher-exceptions
+- once the above is done using https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/web-reactive.html#webflux-fn, create a controller using
+the annotated approach at https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/web-reactive.html#webflux-controller
 - read:
         - https://spring.io/blog/2016/06/13/notes-on-reactive-programming-part-ii-writing-some-code
         - https://netflixtechblog.com/reactive-programming-in-the-netflix-api-with-rxjava-7811c3a1496a
