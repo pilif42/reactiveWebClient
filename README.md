@@ -17,14 +17,14 @@ mvn clean install
 
 
 # TODOs server-side project
-- retry & asynch endpoint:
+- create a controller using the annotated approach at https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/web-reactive.html#webflux-controller
+        - test in the client app that my way of sending a 404 when a customer is not found is correct.
+- once the above is done, retry & asynch endpoint using the functional approach (https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/web-reactive.html#webflux-fn): 
         - unit test basic retry added on CustomerService in the service project.
         - what if we exceed the max nb of retries? Propagate the exception correctly so relevant feedback sent to customer.
                 - use a HandlerFilterFunction similar to LoggingHandlerFilterFunction?
                         - https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/web-reactive.html#webflux-fn-handler-filter-function
                - ou https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/web-reactive.html#webflux-dispatcher-exceptions
-- once the above is done using https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/web-reactive.html#webflux-fn, create a controller using
-the annotated approach at https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/web-reactive.html#webflux-controller
 - read:
         - https://spring.io/blog/2016/06/13/notes-on-reactive-programming-part-ii-writing-some-code
         - https://netflixtechblog.com/reactive-programming-in-the-netflix-api-with-rxjava-7811c3a1496a
