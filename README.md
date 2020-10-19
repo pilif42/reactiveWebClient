@@ -9,22 +9,7 @@ mvn clean install
 - Or: mvn clean package spring-boot:run -DskipTests=true -Dspring-boot.run.profiles=dev
 
 
-# TODOs
-- what about if the creation has failed: see create in CustomerService.
-        - need to check for the status code as currently we assume a 201.
-        - retry mechanism if diff than 201?
-- use subscribe on the GET results: examples at https://projectreactor.io/docs/core/release/reference/index.html#_subscribe_method_examples
-
-
 # TODOs server-side project
-- create a controller using the annotated approach at https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/web-reactive.html#webflux-controller
-        - test in the client app that my way of sending a 404 when a customer is not found is correct.
-- once the above is done, retry & asynch endpoint using the functional approach (https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/web-reactive.html#webflux-fn): 
-        - unit test basic retry added on CustomerService in the service project.
-        - what if we exceed the max nb of retries? Propagate the exception correctly so relevant feedback sent to customer.
-                - use a HandlerFilterFunction similar to LoggingHandlerFilterFunction?
-                        - https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/web-reactive.html#webflux-fn-handler-filter-function
-               - ou https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/web-reactive.html#webflux-dispatcher-exceptions
 - read:
         - https://spring.io/blog/2016/06/13/notes-on-reactive-programming-part-ii-writing-some-code
         - https://netflixtechblog.com/reactive-programming-in-the-netflix-api-with-rxjava-7811c3a1496a
